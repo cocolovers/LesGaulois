@@ -10,18 +10,28 @@ public class Chaudron {
 		}
 		return false;
 	}
-	public void remplirChaudron(int quantite, int forcePotion) {
-		quantitePotion = quantite;
-		forcePotion = forcePotion;
-	}
+
 	
-	public void prendreLouche() {
+	public Chaudron(int quantitePotion, int forcePotion) {
+		this.quantitePotion = quantitePotion;
+		this.forcePotion = forcePotion;
+	}
+
+
+	public void remplirChaudron(int quantite, int forcePotionn) {
+		quantitePotion = quantite;
+		forcePotion = forcePotionn;
+	}
+
+	public int prendreLouche() {
 		while (quantitePotion > 0) {
 			quantitePotion -= 1;
 		}
-		forcePotion = 0;
+		return forcePotion;
 	}
-	
+
+	public int getForcePotion() {
+		return forcePotion;
 	}
-	
+
 }
