@@ -11,11 +11,9 @@ public class Village {
 		this.chef[0] = gaulois;
 	}
 
-
 	public Gaulois getChef() {
 		return chef[0];
 	}
-
 
 	private Gaulois[] villageois;
 
