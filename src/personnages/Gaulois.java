@@ -1,11 +1,11 @@
 package personnages;
 
 import objets.Equipement;
+import objets.Musee;
 import personnages.Village;
 
 public class Gaulois {
 	private String nom;
-//	private int force;
 	private int effetPotion = 1;
 	private int force;
 	private int nbtrophees;
@@ -85,4 +85,13 @@ public class Gaulois {
 		effetPotion = forcePotion;
 	}
 
+	public void faireUneDonation(Musee musee) {
+		if (trophees != null) {
+			this.parler(" Je donne au musee tous mes trophees: ");
+			for (int i=0; i < trophees.length; i++) {
+				musee.donnerTrophee(this, trophees[i]);
+				System.out.println(" - " + trophees[i]);
+			}
+		}
+	}
 }
