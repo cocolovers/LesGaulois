@@ -1,11 +1,15 @@
 package personnages;
 
+import objets.Equipement;
 import personnages.Village;
 
 public class Gaulois {
 	private String nom;
-	private int force;
+//	private int force;
 	private int effetPotion = 1;
+	private int force;
+	private int nbtrophees;
+	private Equipement[] trophees = new Equipement[100];
 
 	private Village[] village = new Village[1];
 
@@ -44,6 +48,10 @@ public class Gaulois {
 		System.out.println(prendreParole() + "\"" + texte + "\"");
 	}
 
+//	private String prendreParole() {
+//		return "Le gaulois " + nom + " : ";
+//	}
+
 	private String prendreParole() {
 		return "Le gaulois " + nom + " : ";
 	}
@@ -54,16 +62,23 @@ public class Gaulois {
 
 	}
 
+//	public void frapper(Romain romain) {
+//		String nomRomain = romain.getNom();
+//		System.out.println(nom + " envoie un grand coup dans la machoire de " + nomRomain);
+//		int coup = force * effetPotion;
+//		romain.recevoirCoup(coup / 3);
+//		if (effetPotion > 1) {
+//			effetPotion = effetPotion - 1;
+//		} else
+//			effetPotion = 1;
+//
+//	}
 	public void frapper(Romain romain) {
-		String nomRomain = romain.getNom();
-		System.out.println(nom + " envoie un grand coup dans la machoire de " + nomRomain);
-		int coup = force * effetPotion;
-		romain.recevoirCoup(coup / 3);
-		if (effetPotion > 1) {
-			effetPotion = effetPotion - 1;
-		} else
-			effetPotion = 1;
-
+		System.out.println(nom + " envoie un grand coup dans la mâchoire de " + romain.getNom());
+		Equipement[] trophee = romain.recevoirCoup((force / 3) * effetPotion);
+		for (int i = 0; trophee[i] != null && i < trophee.length-1; i++) {
+			this.trophees[nbtrophees] = trophee[i];
+		}
 	}
 
 	public void boirePotion(int forcePotion) {
